@@ -49,7 +49,7 @@ public class CepTelefonu extends Urun{
         Set<Urun> cepTelefonlari = urunler.get("Cep Telefonları");
         for (Urun urun : cepTelefonlari) {
             CepTelefonu cepTelefonu = (CepTelefonu) urun;
-            System.out.printf("| %-3d| %-30s| %-10.2f| %-10s| %-10d| %-10.1f| %-10d| %-10.1f| %-10d| %-10s|\n",
+            System.out.printf("| %-3d| %-30s| %-10.2f| %-10s| %-10d| %-10.1f| %-10d| %-10d| %-10d| %-10s|\n",
                     cepTelefonu.getId(), cepTelefonu.getUrunAdi(), cepTelefonu.getFiyat(), cepTelefonu.getMarka().getName(),
                     cepTelefonu.getDepolama(), cepTelefonu.getEkran(), cepTelefonu.getKamera(), cepTelefonu.getPil(),
                     cepTelefonu.getRam(), cepTelefonu.getRenk());

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/patikaStore.iml" filepath="$PROJECT_DIR$/patikaStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PatikaStore.iml" filepath="$PROJECT_DIR$/PatikaStore.iml" />
     </modules>
   </component>
 </project>

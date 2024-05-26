@@ -8,15 +8,15 @@ public class patikaStore {
     public static Set<Marka> markalar = new TreeSet<>((m1, m2) -> m1.getName().compareTo(m2.getName()));
     public static int urunIdCounter = 1;
     static {
-        markalar.add(new Marka(1, "Samsung"));
-        markalar.add(new Marka(2, "Lenovo"));
-        markalar.add(new Marka(3, "Apple"));
-        markalar.add(new Marka(4, "Huawei"));
-        markalar.add(new Marka(5, "Casper"));
-        markalar.add(new Marka(6, "Asus"));
+        markalar.add(new Marka(1, "SAMSUNG"));
+        markalar.add(new Marka(2, "LENOVA"));
+        markalar.add(new Marka(3, "APPLE"));
+        markalar.add(new Marka(4, "HUAWEİ"));
+        markalar.add(new Marka(5, "CASPER"));
+        markalar.add(new Marka(6, "ASUS"));
         markalar.add(new Marka(7, "HP"));
-        markalar.add(new Marka(8, "Xiaomi"));
-        markalar.add(new Marka(9, "Monster"));
+        markalar.add(new Marka(8, "XİAOMİ"));
+        markalar.add(new Marka(9, "MONSTER"));
 
         urunler.put("Cep Telefonları", new HashSet<>());
         urunler.put("Notebook", new HashSet<>());
@@ -88,6 +88,58 @@ public class patikaStore {
             System.out.println("- " + marka.getName());
         }
         System.out.println();
+    }
+    public static void urunFiltreleById(int id) {
+        System.out.println("ID'ye Göre Ürün Filtreleme");
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.printf("| %-3s| %-30s| %-10s| %-10s| %-10s| %-10s| %-12s|\n", "ID", "Ürün Adı", "Fiyat", "Marka", "Depolama", "Ekran", "RAM");
+        System.out.println("----------------------------------------------------------------------------------------------------");
+
+        boolean urunBulundu = false;
+
+        for (Set<Urun> urunSet : urunler.values()) {
+            for (Urun urun : urunSet) {
+                if (urun.getId() == id) {
+                    urunBulundu = true;
+                    System.out.printf("| %-3d| %-30s| %-10.2f| %-10s| %-10d| %-10.1f| %-12d|\n",
+                            urun.getId(), urun.getUrunAdi(), urun.getFiyat(), urun.getMarka().getName(),
+                            urun.getDepolama(), urun.getEkran(), urun.getRam());
+                    break; // Bulunan ürünün ID'si eşleştiği için döngüden çık
+                }
+            }
+        }
+
+        if (!urunBulundu) {
+            System.out.println("Aradığınız ID'ye ait ürün bulunamadı.");
+        }
+
+        System.out.println("----------------------------------------------------------------------------------------------------");
+    }
+
+    public static void urunFiltreleByMarka(String markaAdi) {
+        System.out.println("Markaya Göre Ürün Filtreleme");
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.printf("| %-3s| %-30s| %-10s| %-10s| %-10s| %-10s| %-12s|\n", "ID", "Ürün Adı", "Fiyat", "Marka", "Depolama", "Ekran", "RAM");
+        System.out.println("----------------------------------------------------------------------------------------------------");
+
+        boolean urunBulundu = false;
+
+        for (Set<Urun> urunSet : urunler.values()) {
+            for (Urun urun : urunSet) {
+                if (urun.getMarka().getName().equalsIgnoreCase(markaAdi)) {
+                    urunBulundu = true;
+                    System.out.printf("| %-3d| %-30s| %-10.2f| %-10s| %-10d| %-10.1f| %-12d|\n",
+                            urun.getId(), urun.getUrunAdi(), urun.getFiyat(), urun.getMarka().getName(),
+                            urun.getDepolama(), urun.getEkran(), urun.getRam());
+                }
+            }
+        }
+
+        if (!urunBulundu) {
+            System.out.println("Aradığınız markaya ait ürün bulunamadı.");
+        }
+
+        System.out.println("----------------------------------------------------------------------------------------------------");
     }
 
 }
