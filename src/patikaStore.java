@@ -1,4 +1,4 @@
-package week5.teknikIcerik3;
+package week5.teknikIcerik3.src;
 
 import java.util.*;
 

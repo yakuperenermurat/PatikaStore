@@ -1,9 +1,9 @@
-package week5.teknikIcerik3;
+package week5.teknikIcerik3.src;
 
 import java.util.*;
 
-import static week5.teknikIcerik3.patikaStore.markalar;
-import static week5.teknikIcerik3.patikaStore.urunler;
+import static week5.teknikIcerik3.src.patikaStore.markalar;
+import static week5.teknikIcerik3.src.patikaStore.urunler;
 
 public class Notebook extends Urun{
 
