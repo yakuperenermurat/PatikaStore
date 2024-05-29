@@ -39,6 +39,8 @@ public class CepTelefonu extends Urun{
     public void setKamera(int kamera) {
         this.kamera = kamera;
     }
+
+
     public static void cepTelefonuListele() {
         System.out.println("Cep Telefonu Listesi");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");

@@ -3,7 +3,49 @@ package week5.teknikIcerik3.src;
 import java.util.*;
 
 public class patikaStore {
+    Scanner input = new Scanner(System.in);
+    public void start(){
+        while (true) {
+            System.out.println("PatikaStore Ürün Yönetim Paneli !");
+            System.out.println("1 - Notebook İşlemleri");
+            System.out.println("2 - Cep Telefonu İşlemleri");
+            System.out.println("3 - Marka Listele");
+            System.out.println("4 - ID'ye Göre Ürün Filtreleme");
+            System.out.println("5 - Markaya Göre Ürün Filtreleme");
+            System.out.println("0 - Çıkış Yap");
+            System.out.print("Tercihiniz: ");
+            int tercih = input.nextInt();
 
+            switch (tercih) {
+                case 1:
+                    notebookIslemleri();
+                    break;
+                case 2:
+                    cepTelefonuIslemleri();
+                    break;
+                case 3:
+                    markaListele();
+                    break;
+                case 4:
+                    System.out.println("Filtrelemek istediğiniz id yi giriniz : ");
+                    int IdFiltre = input.nextInt();
+                    urunFiltreleById(IdFiltre);
+                    break;
+                case 5:
+                    input.nextLine(); // Önceki girdiyi temizle
+                    System.out.println("Filtrelemek istediğiniz markayı giriniz : ");
+                    String markayaFiltre = input.nextLine().toUpperCase();
+                    urunFiltreleByMarka(markayaFiltre);
+                    break;
+                case 0:
+                    System.out.println("Çıkış yapılıyor...");
+                    input.close();
+                    return;
+                default:
+                    System.out.println("Geçersiz bir tercih yaptınız!");
+            }
+        }
+    }
     public static Map<String, Set<Urun>> urunler = new HashMap<>();
     public static Set<Marka> markalar = new TreeSet<>((m1, m2) -> m1.getName().compareTo(m2.getName()));
     public static int urunIdCounter = 1;
@@ -21,8 +63,7 @@ public class patikaStore {
         urunler.put("Cep Telefonları", new HashSet<>());
         urunler.put("Notebook", new HashSet<>());
     }
-    public static void notebookIslemleri() {
-        Scanner input = new Scanner(System.in);
+    public  void notebookIslemleri() {
 
         while (true) {
             System.out.println("Notebook İşlemleri");
@@ -51,8 +92,7 @@ public class patikaStore {
         }
     }
 
-    public static void cepTelefonuIslemleri() {
-        Scanner input = new Scanner(System.in);
+    public void cepTelefonuIslemleri() {
 
         while (true) {
             System.out.println("Cep Telefonu İşlemleri");
@@ -81,7 +121,7 @@ public class patikaStore {
         }
     }
 
-    public static void markaListele() {
+    public void markaListele() {
         System.out.println("Markalarımız");
         System.out.println("--------------");
         for (Marka marka : markalar) {
@@ -89,7 +129,7 @@ public class patikaStore {
         }
         System.out.println();
     }
-    public static void urunFiltreleById(int id) {
+    public void urunFiltreleById(int id) {
         System.out.println("ID'ye Göre Ürün Filtreleme");
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.printf("| %-3s| %-30s| %-10s| %-10s| %-10s| %-10s| %-12s|\n", "ID", "Ürün Adı", "Fiyat", "Marka", "Depolama", "Ekran", "RAM");
@@ -116,7 +156,7 @@ public class patikaStore {
         System.out.println("----------------------------------------------------------------------------------------------------");
     }
 
-    public static void urunFiltreleByMarka(String markaAdi) {
+    public void urunFiltreleByMarka(String markaAdi) {
         System.out.println("Markaya Göre Ürün Filtreleme");
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.printf("| %-3s| %-30s| %-10s| %-10s| %-10s| %-10s| %-12s|\n", "ID", "Ürün Adı", "Fiyat", "Marka", "Depolama", "Ekran", "RAM");
